@@ -1,4 +1,5 @@
 import "./scss/style.scss"
+import { getCoins } from "./src/getCoins"; // src dosyasında ki getCoins func import işlemi 
 
 const form = document.querySelector("header form");
  // header içerisindeki form elementi yakala.
@@ -23,6 +24,7 @@ const getInputVal = () =>{
     alert("input not blank!")
   }else{
     console.log("input doldurulmuş!");
+    getCoins()
   }
 
 }
