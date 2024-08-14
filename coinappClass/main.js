@@ -24,7 +24,7 @@ const getInputVal = () =>{
     alert("input not blank!")
   }else{
     console.log("input doldurulmuş!");
-    getCoins()
+    getCoins(inputVal);
   }
 
 }
