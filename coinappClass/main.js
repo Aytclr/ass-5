@@ -1,24 +1,28 @@
 import "./scss/style.scss"
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+const form = document.querySelector("header form");
+ // header içerisindeki form elementi yakala.
+//  console.log(form); // her zamana kontrol amaçlı 
 
-setupCounter(document.querySelector('#counter'))
+form.addEventListener("submit",(e)=>{
+  e.preventDefault() //! forma ait defult olan davranışları iptal eder.
+  // console.log("Form Submit oldu ! ");
+  getInputVal()
+  form.reset(); //input girildikten button submit edildikten sonra formu resetler
+
+
+})
+
+const getInputVal = () =>{
+  const inputVal = document.querySelector("header form input").value      //dışarda yakalamalar boş string göndericek o yüzden scope içinde ve elementin kendisi olan value olarak çağırmak sağlıklı ve işlemi fonk. çağırıldığında yeniden yaptığı için içeride yazılır
+  console.log(inputVal);
+
+
+  //?input doldurmadan submit yapılmaması için
+  if(!inputVal.trim()){ //trim metodu başta ve sonra boşluk varsa API istek atmasını engelle
+    alert("input not blank!")
+  }else{
+    console.log("input doldurulmuş!");
+  }
+
+}
